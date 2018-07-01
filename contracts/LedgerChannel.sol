@@ -3,8 +3,8 @@ pragma solidity ^0.4.8;
 import "./ILibSignatures.sol";
 
 contract LedgerChannel {
-    uint constant confirmTime = 100 minutes;
-    uint constant closingTime = 100 minutes;
+    uint constant confirmTime = 20 minutes;
+    uint constant closingTime = 20 minutes;
     string constant alreadyClosed = " already closed";
 
     event EventLCOpening(uint id);
@@ -228,7 +228,7 @@ contract LedgerChannel {
             else {
                 status = LCStatus.ClosingByBob;
             }
-            timeout = now + 3*closingTime;
+            timeout = now + 5*closingTime +20 minutes;
             EventLCClosing();
         }
         else {
